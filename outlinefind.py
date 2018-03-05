@@ -1,7 +1,13 @@
 import cv2
 import numpy as np
 
-img = cv2.imread("123.jpg")  # 载入图像
+''' 
+    外轮廓检测: 内细节会被抹去, 只保留外框
+'''
+
+IMG_PATH = "test (4).jpg"
+
+img = cv2.imread(IMG_PATH)  # 载入图像
 h, w = img.shape[:2]        # 获取图像的高和宽
 cv2.imshow("Origin", img)  # 显示原始图像
 
