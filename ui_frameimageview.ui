@@ -6,24 +6,108 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>745</width>
-    <height>537</height>
+    <width>688</width>
+    <height>422</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="labelImage">
+  <widget class="QLabel" name="labelImageDst">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>40</y>
-     <width>621</width>
-     <height>431</height>
+     <x>10</x>
+     <y>10</y>
+     <width>461</width>
+     <height>391</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>LabelImageDst</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="horizontalSliderConvCoreX">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>270</y>
+     <width>160</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>10</number>
+   </property>
+   <property name="pageStep">
+    <number>1</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelImageSrc">
+   <property name="geometry">
+    <rect>
+     <x>485</x>
+     <y>10</y>
+     <width>181</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>LabelImageSrc</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>485</x>
+     <y>210</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="horizontalSliderConvCoreY">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>308</y>
+     <width>160</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="horizontalSliderT1">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>345</y>
+     <width>160</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="horizontalSliderT2">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>380</y>
+     <width>160</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>

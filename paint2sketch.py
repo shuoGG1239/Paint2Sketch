@@ -72,16 +72,23 @@ def canny_contour(image, threshold1=128, threshold2=255):
     return cv2.Canny(img, threshold1, threshold2, cv2.THRESH_BINARY)
 
 
-IMG_PATH = "remu1.jpg"
-
-
 def get_sketch(src_img_path, conv_core=(2, 2), t1=128, t2=255):
+    """
+    返回线稿
+    :param src_img_path:
+    :param conv_core: 卷积核
+    :param t1:
+    :param t2:
+    :return: mat
+    """
     img = cv2.imread(src_img_path)
     img = canny_contour(img, t1, t2)
     img = dilate_img(img, conv_core)
     img = inverse_color(img)
     return img
 
+
+IMG_PATH = "remu1.jpg"
 
 if __name__ == '__main__':
     image = cv2.imread(IMG_PATH)
