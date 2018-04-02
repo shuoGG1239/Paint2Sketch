@@ -1,21 +1,23 @@
+from PyQt5.QtCore import Qt, pyqtSlot
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import QWidget, QFrame, QFileDialog
-from PyQt5.QtCore import Qt, pyqtSlot
+from qss_ui_theme.green_theme import green_decorator
 
 import paint2sketch
 from ui_frameimageview import Ui_frameImageView
 
 
+@green_decorator
 class ImageView(QWidget):
     img_path = "sakura1.jpg"
 
     def __init__(self):
-        super(ImageView, self).__init__()
+        QWidget.__init__(self)
         self.ui = Ui_frameImageView()
         self.ui.setupUi(self)
-        sketch_image = ImageView.get_sketch_pixmap(self.img_path, (2, 2), 128, 255)
-        ImageView.set_label_image(self.ui.labelImageDst, sketch_image)
-        ImageView.set_label_image(self.ui.labelImageSrc, QPixmap(self.img_path))
+        sketch_image = self.get_sketch_pixmap(self.img_path, (2, 2), 128, 255)
+        self.set_label_image(self.ui.labelImageDst, sketch_image)
+        self.set_label_image(self.ui.labelImageSrc, QPixmap(self.img_path))
         self.ui.labelImageSrc.setFrameShape(QFrame.Box)
         self.ui.labelImageDst.setFrameShape(QFrame.Box)
         self.init_slider()
@@ -83,9 +85,9 @@ class ImageView(QWidget):
         core_Y = self.ui.horizontalSliderConvCoreY.value()
         t1 = self.ui.horizontalSliderT1.value()
         t2 = self.ui.horizontalSliderT2.value()
-        sketch_image = ImageView.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
-        ImageView.set_label_image(self.ui.labelImageDst, sketch_image)
-        ImageView.set_label_image(self.ui.labelImageSrc, QPixmap(self.img_path))
+        sketch_image = self.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
+        self.set_label_image(self.ui.labelImageDst, sketch_image)
+        self.set_label_image(self.ui.labelImageSrc, QPixmap(self.img_path))
 
     @pyqtSlot(int)
     def on_horizontalSliderConvCoreX_valueChanged(self, value):
@@ -93,8 +95,8 @@ class ImageView(QWidget):
         core_Y = self.ui.horizontalSliderConvCoreY.value()
         t1 = self.ui.horizontalSliderT1.value()
         t2 = self.ui.horizontalSliderT2.value()
-        sketch_image = ImageView.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
-        ImageView.set_label_image(self.ui.labelImageDst, sketch_image)
+        sketch_image = self.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
+        self.set_label_image(self.ui.labelImageDst, sketch_image)
 
     @pyqtSlot(int)
     def on_horizontalSliderConvCoreY_valueChanged(self, value):
@@ -102,8 +104,8 @@ class ImageView(QWidget):
         core_Y = value
         t1 = self.ui.horizontalSliderT1.value()
         t2 = self.ui.horizontalSliderT2.value()
-        sketch_image = ImageView.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
-        ImageView.set_label_image(self.ui.labelImageDst, sketch_image)
+        sketch_image = self.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
+        self.set_label_image(self.ui.labelImageDst, sketch_image)
 
     @pyqtSlot(int)
     def on_horizontalSliderT1_valueChanged(self, value):
@@ -111,8 +113,8 @@ class ImageView(QWidget):
         core_Y = self.ui.horizontalSliderConvCoreY.value()
         t1 = value
         t2 = self.ui.horizontalSliderT2.value()
-        sketch_image = ImageView.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
-        ImageView.set_label_image(self.ui.labelImageDst, sketch_image)
+        sketch_image = self.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
+        self.set_label_image(self.ui.labelImageDst, sketch_image)
 
     @pyqtSlot(int)
     def on_horizontalSliderT2_valueChanged(self, value):
@@ -120,5 +122,5 @@ class ImageView(QWidget):
         core_Y = self.ui.horizontalSliderConvCoreY.value()
         t1 = self.ui.horizontalSliderT1.value()
         t2 = value
-        sketch_image = ImageView.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
-        ImageView.set_label_image(self.ui.labelImageDst, sketch_image)
+        sketch_image = self.get_sketch_pixmap(self.img_path, (core_X, core_Y), t1, t2)
+        self.set_label_image(self.ui.labelImageDst, sketch_image)
