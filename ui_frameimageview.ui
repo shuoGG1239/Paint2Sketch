@@ -58,12 +58,12 @@
     <string>LabelImageSrc</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButtonOpen">
    <property name="geometry">
     <rect>
      <x>485</x>
      <y>210</y>
-     <width>181</width>
+     <width>88</width>
      <height>41</height>
     </rect>
    </property>
@@ -108,6 +108,19 @@
    </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonSave">
+   <property name="geometry">
+    <rect>
+     <x>577</x>
+     <y>210</y>
+     <width>88</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save</string>
    </property>
   </widget>
  </widget>

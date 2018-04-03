@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_frameimageview.ui'
 #
-# Created: Mon Mar 12 20:46:18 2018
+# Created: Tue Apr  3 09:03:20 2018
 #      by: PyQt5 UI code generator 5.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -25,9 +25,9 @@ class Ui_frameImageView(object):
         self.labelImageSrc = QtWidgets.QLabel(frameImageView)
         self.labelImageSrc.setGeometry(QtCore.QRect(485, 10, 181, 171))
         self.labelImageSrc.setObjectName("labelImageSrc")
-        self.pushButton = QtWidgets.QPushButton(frameImageView)
-        self.pushButton.setGeometry(QtCore.QRect(485, 210, 181, 41))
-        self.pushButton.setObjectName("pushButton")
+        self.pushButtonOpen = QtWidgets.QPushButton(frameImageView)
+        self.pushButtonOpen.setGeometry(QtCore.QRect(485, 210, 88, 41))
+        self.pushButtonOpen.setObjectName("pushButtonOpen")
         self.horizontalSliderConvCoreY = QtWidgets.QSlider(frameImageView)
         self.horizontalSliderConvCoreY.setGeometry(QtCore.QRect(495, 308, 160, 19))
         self.horizontalSliderConvCoreY.setOrientation(QtCore.Qt.Horizontal)
@@ -40,6 +40,9 @@ class Ui_frameImageView(object):
         self.horizontalSliderT2.setGeometry(QtCore.QRect(495, 380, 160, 19))
         self.horizontalSliderT2.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSliderT2.setObjectName("horizontalSliderT2")
+        self.pushButtonSave = QtWidgets.QPushButton(frameImageView)
+        self.pushButtonSave.setGeometry(QtCore.QRect(577, 210, 88, 41))
+        self.pushButtonSave.setObjectName("pushButtonSave")
 
         self.retranslateUi(frameImageView)
         QtCore.QMetaObject.connectSlotsByName(frameImageView)
@@ -49,5 +52,6 @@ class Ui_frameImageView(object):
         frameImageView.setWindowTitle(_translate("frameImageView", "Form"))
         self.labelImageDst.setText(_translate("frameImageView", "LabelImageDst"))
         self.labelImageSrc.setText(_translate("frameImageView", "LabelImageSrc"))
-        self.pushButton.setText(_translate("frameImageView", "Open"))
+        self.pushButtonOpen.setText(_translate("frameImageView", "Open"))
+        self.pushButtonSave.setText(_translate("frameImageView", "Save"))
 
