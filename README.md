@@ -10,8 +10,8 @@
 ## 效果
 效果很一般, 就算调参调完也是很一般... ...如图
 
-![img](https://github.com/shuoGG1239/Paint2Sketch/blob/master/readme_img/remu_arg.png) 
+![img](https://raw.githubusercontent.com/shuoGG1239/Paint2Sketch/master/readme_img/remu_arg.png) 
 
-![img](https://github.com/shuoGG1239/Paint2Sketch/blob/master/readme_img/sakura_arg.png)
+![img](https://raw.githubusercontent.com/shuoGG1239/Paint2Sketch/master/readme_img/sakura_arg.png)
 
 ## 暂时弃坑,有好的优化思路再填坑...
