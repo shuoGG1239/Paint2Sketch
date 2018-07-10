@@ -1,13 +1,12 @@
 from PyQt5.QtCore import Qt, pyqtSlot, QFileInfo
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import QWidget, QFrame, QFileDialog
-from qss_ui_theme.green_theme import green_decorator
+from QCandyUi.CandyWindow import colorful
 
 import paint2sketch
 from ui_frameimageview import Ui_frameImageView
 
-
-@green_decorator
+@colorful('blue')
 class ImageView(QWidget):
     img_path = "sakura1.jpg"
     sketch_pixmap = None
