@@ -15,3 +15,10 @@
 ![img](https://raw.githubusercontent.com/shuoGG1239/Paint2Sketch/master/readme_img/sakura_arg.png)
 
 ## 暂时弃坑,有好的优化思路再填坑...
+
+
+
+## 好了...我来填坑了(改进版本)
+* 深度学习逆天改命
+* ![new_chino.jpg](https://i.loli.net/2019/06/27/5d14cbcdbeb8112749.jpg)
+* ![new_remu.jpg](https://i.loli.net/2019/06/27/5d14cbd62ce9998320.jpg)

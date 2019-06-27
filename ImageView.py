@@ -1,10 +1,9 @@
+import threading
+
 from PyQt5.QtCore import Qt, pyqtSlot, QFileInfo, pyqtSignal
 from PyQt5.QtGui import QImage, QPixmap, QMovie
 from PyQt5.QtWidgets import QWidget, QFileDialog, QLabel
 from QCandyUi.CandyWindow import colorful
-
-import threading
-from multiprocessing.pool import ThreadPool
 
 import sketch
 from ui_frameimageview import Ui_frameImageView
@@ -33,6 +32,14 @@ class ImageView(QWidget):
         self.ui.horizontalSlider.setMaximum(len(self.sketch_pixmaps) - 1)
         self.ui.horizontalSlider.setValue(0)
         self.set_label_image(self.ui.labelImageDst, self.sketch_pixmaps[0])
+        self.loading_hide()
+
+    def loading_show(self):
+        x, y = (self.width() / 2) - 24, (self.height() / 2) - 24
+        self.loadingLabel.setGeometry(x, y, self.loadingLabel.width(), self.loadingLabel.height())
+        self.loadingLabel.setVisible(True)
+
+    def loading_hide(self):
         self.loadingLabel.setVisible(False)
 
     def init_loading_gif(self):
@@ -43,7 +50,6 @@ class ImageView(QWidget):
         gif = QMovie(LOADING_GIF_URL)
         gif.start()
         x, y = (self.width() / 2) - 24, (self.height() / 2) - 24
-        # x, y = 290, 160
         self.loadingLabel = QLabel(self)
         self.loadingLabel.setMovie(gif)
         self.loadingLabel.adjustSize()
@@ -58,7 +64,7 @@ class ImageView(QWidget):
             self.signal_sketch_finished.emit(result)
 
     def run_transform_async(self, image_url):
-        self.loadingLabel.setVisible(True)
+        self.loading_show()
         threading.Thread(target=self.job_sketch, args=(image_url,)).start()
 
     @staticmethod
@@ -118,11 +124,6 @@ class ImageView(QWidget):
         self.set_label_image(self.ui.labelImageSrc, QPixmap(img_url))
         self.ui.labelImageDst.clear()
         self.run_transform_async(img_url)
-        # self.sketch_pixmaps = self.get_sketch_pixmaps(self.img_path)
-        # self.ui.horizontalSlider.setMaximum(len(self.sketch_pixmaps) - 1)
-        # self.ui.horizontalSlider.setValue(0)
-        # self.set_label_image(self.ui.labelImageSrc, QPixmap(self.img_path))
-        # self.set_label_image(self.ui.labelImageDst, self.sketch_pixmaps[0])
 
     @pyqtSlot(int)
     def on_horizontalSlider_valueChanged(self, value):
