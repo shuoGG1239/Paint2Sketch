@@ -1,14 +1,13 @@
 import threading
 
 from PyQt5.QtCore import Qt, pyqtSlot, QFileInfo, pyqtSignal
-from PyQt5.QtGui import QImage, QPixmap, QMovie
-from PyQt5.QtWidgets import QWidget, QFileDialog, QLabel
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtWidgets import QWidget, QFileDialog
 from QCandyUi.CandyWindow import colorful
 
+import Loading
 import sketch
 from ui_frameimageview import Ui_frameImageView
-
-LOADING_GIF_URL = './asset/loading.gif'
 
 
 @colorful('blue')
@@ -23,7 +22,7 @@ class ImageView(QWidget):
         self.img_path = ""
         self.sketch_pixmaps = []
         self.init_slider()
-        self.init_loading_gif()
+        self.loadingLabel = Loading.Loading(self)
         self.signal_sketch_finished.connect(self.__slot_update_images)
 
     @pyqtSlot(list)
@@ -32,29 +31,7 @@ class ImageView(QWidget):
         self.ui.horizontalSlider.setMaximum(len(self.sketch_pixmaps) - 1)
         self.ui.horizontalSlider.setValue(0)
         self.set_label_image(self.ui.labelImageDst, self.sketch_pixmaps[0])
-        self.loading_hide()
-
-    def loading_show(self):
-        x, y = (self.width() / 2) - 24, (self.height() / 2) - 24
-        self.loadingLabel.setGeometry(x, y, self.loadingLabel.width(), self.loadingLabel.height())
-        self.loadingLabel.setVisible(True)
-
-    def loading_hide(self):
-        self.loadingLabel.setVisible(False)
-
-    def init_loading_gif(self):
-        """
-        初始化loading动画
-        :return:
-        """
-        gif = QMovie(LOADING_GIF_URL)
-        gif.start()
-        x, y = (self.width() / 2) - 24, (self.height() / 2) - 24
-        self.loadingLabel = QLabel(self)
-        self.loadingLabel.setMovie(gif)
-        self.loadingLabel.adjustSize()
-        self.loadingLabel.setGeometry(x, y, self.loadingLabel.width(), self.loadingLabel.height())
-        self.loadingLabel.setVisible(False)
+        self.loadingLabel.hide()
 
     def job_sketch(self, image_url):
         result = []
@@ -64,7 +41,7 @@ class ImageView(QWidget):
             self.signal_sketch_finished.emit(result)
 
     def run_transform_async(self, image_url):
-        self.loading_show()
+        self.loadingLabel.show()
         threading.Thread(target=self.job_sketch, args=(image_url,)).start()
 
     @staticmethod
